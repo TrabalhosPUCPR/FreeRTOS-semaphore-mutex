@@ -33,7 +33,7 @@ int main_() {
 
 	xTaskCreate(task1, "task1", 10, 1, 1, NULL);
 	xTaskCreate(task2, "task2", 10, 2, 1, NULL);
-	xTaskCreate(task3, "task3", 10, 3, 3, NULL);
+	xTaskCreate(task3, "task3", 10, 3, 1, NULL);
 
 	vTaskStartScheduler();
 	for (;;);
