@@ -57,7 +57,7 @@ void task1(void* parameters) {
 		current_date.month = time_now->tm_mon + 1;
 		current_date.ano = time_now->tm_year + 1900;
 		// damos take no semaforo para verificar sua disponibilidade
-		// se nao tiver, reinicia o for, se tiver, pega o buffer display e cria uma nova string formata com os dados acima
+		// se nao tiver e o delay de espera para tentar de novo passou, reinicia o for, se tiver, pega o buffer display e cria uma nova string formata com os dados acima
 		if (xSemaphoreTake(mutex, portMAX_DELAY) == pdTRUE) {
 			sprintf(display, "Task %ld - %d/%d/%d\n", id, current_date.day, current_date.month, current_date.ano);
 			vPrintString(display);
